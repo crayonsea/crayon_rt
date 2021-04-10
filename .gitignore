@@ -3,3 +3,4 @@ build
 *.bmp
 *.png
 *.sh
+*temp*
