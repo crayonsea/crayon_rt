@@ -5,6 +5,7 @@
 #include <type_traits>
 // numeric
 #include <limits>
+#include <cmath>
 // I/O
 #include <iostream>
 // STL
@@ -17,6 +18,12 @@ namespace crayon {
     // I/O
     class Image;
     // Scene
+
+    // Geometry
+    template <typename T>
+    class Vector2;
+    template <typename T>
+    class Vector3;
 
     
 } // namespace crayon
