@@ -18,6 +18,7 @@ class Image {
 private:
     int width, height;
     ImageFormat format;
+    int pixel_index;
     std::vector<std::tuple<double, double, double>> framebuffer;
     
 public:
@@ -25,6 +26,7 @@ public:
     Image(int width, int height, ImageFormat format);
     ~Image();
     
+    void setColor(std::tuple<double, double, double> color);
     void setColor(int i, int j, std::tuple<int, int, int> color);
     void setColor(int i, int j, std::tuple<double, double, double> color);
     void save(std::string filename);

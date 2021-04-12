@@ -7,13 +7,24 @@ Image::Image() {}
 Image::Image(int width, int height, ImageFormat format) {
     this->width = width;
     this->height = height;
-    this->framebuffer.resize(width * height);
     this->format = format;
+    this->framebuffer.resize(width * height);
+    this->pixel_index = 0;
 }
 
 Image::~Image() {}
 
 //  Set
+
+// (i, j) - pixel sequence coordination
+// j: h-1 -> 0, i: 0 -> w
+// 从上到下, 从左到右, index++
+// 0:(0, h-1), 1:(1, h-1), ... (w-1, h-1)
+// ...
+// (0, 0), (1, 0), ... (w-1, 0)
+void Image::setColor(std::tuple<double, double, double> color) {
+    framebuffer[pixel_index++] = color;
+}
 
 void Image::setColor(int i, int j, std::tuple<int, int, int> color) {
     double ir, ig, ib;
@@ -22,7 +33,7 @@ void Image::setColor(int i, int j, std::tuple<int, int, int> color) {
 }
 
 void Image::setColor(int i, int j, std::tuple<double, double, double> color) {
-    framebuffer[i * width + j] = color;
+    framebuffer[(height - 1 - j) * width + i] = color;
 }
 
 // Save
@@ -45,7 +56,7 @@ void Image::save(std::string filename) {
             stbi_write_png(filename.c_str(), width, height, channels_num, output, width * channels_num);
             break;
         default:
-            std::invalid_argument("image format");
+            throw std::invalid_argument("image format");
     }
 
     if (output) delete output;
