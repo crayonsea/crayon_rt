@@ -139,7 +139,7 @@ public:
     // utils
     T length_squred() const {  return x * x + y * y + z * z; }
     T length() const { return std::sqrt(x * x + y * y + z * z); }
-    Vector3<T> normalized() { T len = this->length(); return Vector3f(x / len, y / len, z / len); }
+    Vector3<T> normalized() { T len = this->length(); return Vector3(x / len, y / len, z / len); }
 };
 
 // Type
