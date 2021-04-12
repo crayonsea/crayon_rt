@@ -188,6 +188,10 @@ public:
 public:
     Point2() : x(0), y(0) {};
     Point2(T x, T y) : x(x), y(y) {};
+    // I/O
+    friend std::ostream &operator<<(std::ostream &os, const Point2<T> &p) {
+        os << "[ " << p.x << ", " << p.y << " ]"; return os;
+    }
     // explicit
     template <typename U>
     explicit Point2(const Point2<U> &p) : x((T)p.x), y((T)p.y) {}
@@ -256,6 +260,10 @@ public:
 public:
     Point3() : x(0), y(0), z(0) {};
     Point3(T x, T y, T z) : x(x), y(y), z(z) {};
+    // I/O
+    friend std::ostream &operator<<(std::ostream &os, const Point3<T> &p) {
+        os << "[ " << p.x << ", " << p.y << ", " << p.z << " ]"; return os;
+    }
     // explicit
     template <typename U>
     explicit Point3(const Point3<U> &p) : x((T)p.x), y((T)p.y), z((T)p.z) {}
