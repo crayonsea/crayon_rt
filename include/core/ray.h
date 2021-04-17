@@ -14,10 +14,11 @@ class Ray {
 public:
     Point3d o;
     Vector3d d;
+    mutable double tmax;
 public:
     // constructor
     Ray() {}
-    Ray(const Point3d &o, const Vector3d &d) : o(o), d(d) {}
+    Ray(const Point3d &o, const Vector3d &d, double tmax=std::numeric_limits<double>().max()) : o(o), d(d), tmax(tmax) {}
     // I/O
     friend std::ostream &operator<<(std::ostream &os, const Ray &r) {
         os << "[o=" << r.o << ", d=" << r.d << "]"; return os;
