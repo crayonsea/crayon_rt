@@ -4,3 +4,4 @@ build
 *.png
 *.sh
 *temp*
+scenes/models
