@@ -11,13 +11,29 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 add_library(stb_lib INTERFACE)
 target_include_directories(stb_lib INTERFACE include/stb)
 
+# library -- tinyobjloader
+add_library(tinyobj_lib INTERFACE)
+target_include_directories(tinyobj_lib INTERFACE include/tinyobj)
+
 # library -- core
 set(CORE_SRC
     src/core/image.cpp
+    src/core/objloader.cpp
 )
 add_library(core_lib SHARED ${CORE_SRC})
 target_include_directories(core_lib PUBLIC include)
-target_link_libraries(core_lib PRIVATE stb_lib)
+target_link_libraries(core_lib PRIVATE 
+    stb_lib
+    tinyobj_lib
+)
+
+# library -- shapes
+set(SHAPES_SRC
+    src/shapes/sphere.cpp
+)
+add_library(shapes_lib SHARED ${SHAPES_SRC})
+target_include_directories(shapes_lib PUBLIC include)
+target_link_libraries(shapes_lib PRIVATE core_lib)
 
 # executable
 add_executable(crayon_rt 
@@ -26,5 +42,7 @@ add_executable(crayon_rt
 
 target_link_libraries(crayon_rt
     stb_lib
+    tinyobj_lib
     core_lib
+    shapes_lib
 )
