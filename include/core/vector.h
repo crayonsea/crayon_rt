@@ -181,8 +181,7 @@ inline Vector3<T> cross(const Vector3<T> &a, const Vector3<T> &b) {
 // 
 
 template <typename T>
-class Point2
-{
+class Point2 {
 public:
     T x, y;
 public:
@@ -253,8 +252,7 @@ typedef Point2<double> Point2d;
 // 
 
 template <typename T>
-class Point3
-{
+class Point3 {
 public:
     T x, y, z;
 public:
