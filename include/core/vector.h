@@ -321,6 +321,28 @@ typedef Point3<int> Point3i;
 typedef Point3<float> Point3f;
 typedef Point3<double> Point3d;
 
+//
+// Bounds3
+// 
+template <typename T>
+class Bounds3 {
+public:
+    Point3<T> pmin, pmax;
+public:
+    Bounds3() {
+        T min_v = std::numeric_limits<T>::lowest();
+        T max_v = std::numeric_limits<T>::max();
+        pmin = Point3<T>(min_v, min_v, min_v);
+        pmax = Point3<T>(max_v, max_v, max_v);
+    }
+
+    Bounds3(Point3<T> pmin, Point3<T> pmax) : pmin(pmin), pmax(pmax) {}
+};
+
+typedef Bounds3<int> Bounds3i;
+typedef Bounds3<float> Bounds3f;
+typedef Bounds3<double> Bounds3d;
+
 } // namespace crayon
 
 #endif
