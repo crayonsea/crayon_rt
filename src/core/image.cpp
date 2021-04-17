@@ -22,6 +22,10 @@ Image::~Image() {}
 // 0:(0, h-1), 1:(1, h-1), ... (w-1, h-1)
 // ...
 // (0, 0), (1, 0), ... (w-1, 0)
+void Image::setColor(const Color &color) {
+    framebuffer[pixel_index++] = std::make_tuple<double, double, double>(color[0], color[1], color[2]);
+}
+
 void Image::setColor(std::tuple<double, double, double> color) {
     framebuffer[pixel_index++] = color;
 }
@@ -30,6 +34,10 @@ void Image::setColor(int i, int j, std::tuple<int, int, int> color) {
     double ir, ig, ib;
     std::tie(ir, ig, ib) = color;
     this->setColor(i, j, std::make_tuple(ir, ig, ib));
+}
+
+void Image::setColor(int i, int j, const Color &color) {
+    framebuffer[(height - 1 - j) * width + i] = std::make_tuple<double, double, double>(color[0], color[1], color[2]);
 }
 
 void Image::setColor(int i, int j, std::tuple<double, double, double> color) {

@@ -2,6 +2,7 @@
 #define CRAYON_CORE_IMAGE_H
 
 #include "core/crayon.h"
+#include "core/vector.h"
 
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb/stb_image_write.h"
@@ -26,8 +27,10 @@ public:
     Image(int width, int height, ImageFormat format);
     ~Image();
     
+    void setColor(const Color &color);
     void setColor(std::tuple<double, double, double> color);
     void setColor(int i, int j, std::tuple<int, int, int> color);
+    void setColor(int i, int j, const Color &color);
     void setColor(int i, int j, std::tuple<double, double, double> color);
     void save(std::string filename);
 };
