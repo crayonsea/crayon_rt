@@ -21,7 +21,7 @@ bool Sphere::intersect(const Ray &ray, double *t_hit, Interaction *isect) const 
     // norm = hit - center
     auto p_norm = (p_hit - center).normalized();
     
-    *t_hit = t0;
+    *t_hit = t;
     *isect = Interaction(p_hit, p_norm, -ray.d);
     
     return true;
