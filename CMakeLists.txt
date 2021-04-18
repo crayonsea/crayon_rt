@@ -30,6 +30,7 @@ target_link_libraries(core_lib PRIVATE
 # library -- shapes
 set(SHAPES_SRC
     src/shapes/sphere.cpp
+    src/shapes/triangle.cpp
 )
 add_library(shapes_lib SHARED ${SHAPES_SRC})
 target_include_directories(shapes_lib PUBLIC include)
