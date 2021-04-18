@@ -17,7 +17,7 @@ public:
     Shape() {}
     // interface
     virtual Bounds3d objectBound() const = 0;
-    virtual bool intersect(const Ray &ray, double *t_hit, Interaction *isect) const = 0;
+    virtual bool intersect(const Ray &ray, double &t_hit, Interaction &isect) const = 0;
 };
 
 } // namespace crayon

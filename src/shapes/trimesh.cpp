@@ -11,7 +11,7 @@ namespace crayon {
         return Bounds3d();
     }
 
-    bool Triangle::intersect(const Ray &ray, double *t_hit, Interaction *isect) const {
+    bool Triangle::intersect(const Ray &ray, double &t_hit, Interaction &isect) const {
         // 判断 Ray 与 三角形 是否相交
         // 1. Ray 与 三角形所在的平面相交, 得到交点 p
         // 2. 判断交点 p 是否在三角形内部
@@ -34,8 +34,8 @@ namespace crayon {
 
         if (ret_0 < 0 || ret_1 < 0 || ret_2 < 0) return false;
 
-        *t_hit = t;
-        *isect = Interaction(p, n, -ray.d);
+        t_hit = t;
+        isect = Interaction(p, n, -ray.d);
         
         return true;
     }
@@ -63,11 +63,11 @@ namespace crayon {
         return Bounds3d();
     }
 
-    bool TriMesh::intersect(const Ray &ray, double *t_hit, Interaction *isect) const {
+    bool TriMesh::intersect(const Ray &ray, double &t_hit, Interaction &isect) const {
         bool hit = false;
         for (auto triangle : triangles) {
             if (triangle.get()->intersect(ray, t_hit, isect)) {
-                ray.tmax = *t_hit;
+                ray.tmax = t_hit;
                 hit = true;
             }
         }

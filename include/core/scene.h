@@ -20,11 +20,11 @@ public:
         objects.push_back(object);
     }
 
-    bool intersect(const Ray &ray, Interaction *isect) const {
+    bool intersect(const Ray &ray, Interaction &isect) const {
         double t_hit = ray.tmax;
         bool hitted = false;
         for (auto object : objects) {
-            if (object.get()->intersect(ray, &t_hit, isect)) {
+            if (object.get()->intersect(ray, t_hit, isect)) {
                 ray.tmax = t_hit;
                 hitted = true;
             }

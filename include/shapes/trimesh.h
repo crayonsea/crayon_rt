@@ -25,7 +25,7 @@ public:
     }
     // interface
     Bounds3d objectBound() const;
-    bool intersect(const Ray &ray, double *t_hit, Interaction *isect) const;
+    bool intersect(const Ray &ray, double &t_hit, Interaction &isect) const;
 };
 
 // 
@@ -40,7 +40,7 @@ public:
     TriMesh(std::string model_path);
     // interface
     Bounds3d objectBound() const;
-    bool intersect(const Ray &ray, double *t_hit, Interaction *isect) const;
+    bool intersect(const Ray &ray, double &t_hit, Interaction &isect) const;
 };
 
 } // namespace crayon

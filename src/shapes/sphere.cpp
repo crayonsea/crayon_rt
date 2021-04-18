@@ -6,7 +6,7 @@ Bounds3d Sphere::objectBound() const {
     return Bounds3d(Point3d(-radius, -radius, -radius), Point3d(radius, radius, radius));
 }
 
-bool Sphere::intersect(const Ray &ray, double *t_hit, Interaction *isect) const {
+bool Sphere::intersect(const Ray &ray, double &t_hit, Interaction &isect) const {
     auto x = ray.o - center;
     double a = dot(ray.d, ray.d);
     double b = 2 * dot(x, ray.d);
@@ -21,8 +21,8 @@ bool Sphere::intersect(const Ray &ray, double *t_hit, Interaction *isect) const 
     // norm = hit - center
     auto p_norm = (p_hit - center).normalized();
     
-    *t_hit = t;
-    *isect = Interaction(p_hit, p_norm, -ray.d);
+    t_hit = t;
+    isect = Interaction(p_hit, p_norm, -ray.d);
     
     return true;
 }

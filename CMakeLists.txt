@@ -30,6 +30,7 @@ target_link_libraries(core_lib PRIVATE
 # library -- shapes
 set(SHAPES_SRC
     src/shapes/sphere.cpp
+    src/shapes/cylinder.cpp
     src/shapes/trimesh.cpp
 )
 add_library(shapes_lib SHARED ${SHAPES_SRC})

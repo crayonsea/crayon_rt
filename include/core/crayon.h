@@ -53,6 +53,10 @@ namespace crayon {
         return true;
     }
 
+    inline double clamp(const double& lo, const double& hi, const double& v) {
+        return std::max(lo, std::min(hi, v));
+    }
+
     
 } // namespace crayon
 
