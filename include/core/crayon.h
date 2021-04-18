@@ -3,11 +3,14 @@
 
 // type
 #include <type_traits>
+// memory
+#include <memory>
 // numeric
 #include <limits>
 #include <cmath>
 // I/O
 #include <iostream>
+#include <iomanip>
 // STL
 #include <string>
 #include <algorithm>
@@ -28,6 +31,9 @@ namespace crayon {
     class Point2;
     template <typename T>
     class Point3;
+
+    // Shapes
+    class Shape;
 
     // Utils
     inline bool Quadratic(double A, double B, double C, double *t0, double *t1) {

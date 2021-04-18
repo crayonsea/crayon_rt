@@ -30,11 +30,14 @@ target_link_libraries(core_lib PRIVATE
 # library -- shapes
 set(SHAPES_SRC
     src/shapes/sphere.cpp
-    src/shapes/triangle.cpp
+    src/shapes/trimesh.cpp
 )
 add_library(shapes_lib SHARED ${SHAPES_SRC})
 target_include_directories(shapes_lib PUBLIC include)
-target_link_libraries(shapes_lib PRIVATE core_lib)
+target_link_libraries(shapes_lib PRIVATE 
+    tinyobj_lib
+    core_lib
+)
 
 # executable
 add_executable(crayon_rt 

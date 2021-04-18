@@ -16,6 +16,7 @@ private:
 public:
     ObjLoader() {}
     static void load(std::string model_path);
+    static void load(std::string model_path, std::vector<Point3d> &verts, std::vector<std::tuple<int, int, int>> &faces);
 };
 
 } // namespace crayon
