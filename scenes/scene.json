@@ -1,0 +1,30 @@
+{
+    "name": "test_scenes",
+
+    "renderer": {
+    },
+    "camera": {
+    },
+    "shapes": [
+        {
+            "type": "Sphere",
+            "radius": 0.5,
+            "center": [0.0, 0.10, -2.0]
+        },
+        {
+            "type": "Triangle",
+            "p0": [0.0, 0.0, -2.0],
+            "p1": [1.0, 1.0, -2.0],
+            "p2": [-1.0, 1.0, -2.0]
+        },
+        {
+            "type": "TriMesh",
+            "path": "scenes/models/teapot.obj"
+        }
+    ],
+    "lights": {
+
+    },
+    "happy": true,
+    "pi": 3.141
+}
