@@ -109,7 +109,10 @@ public:
                 }
                 break;
                 case SHAPE::CYLINDER: {
-
+                    auto center = Point3d(shape["center"][0].get<double>(), shape["center"][1].get<double>(), shape["center"][2].get<double>());
+                    auto radius = shape["radius"].get<double>();
+                    auto length = shape["length"].get<double>();
+                    cur_shape = std::make_shared<Cylinder>(center, radius, length);
                 }
                 break;
                 default:
