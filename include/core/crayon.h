@@ -16,6 +16,8 @@
 #include <algorithm>
 #include <vector>
 #include <tuple>
+#include <map>
+#include <unordered_map>
 
 namespace crayon {
     // I/O
